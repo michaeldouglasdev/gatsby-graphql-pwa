@@ -1,5 +1,6 @@
 const { createFilePath } = require("gatsby-source-filesystem")
 const path = require("path")
+// gatsby-node.js
 
 // To add the slug field to each post
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -40,18 +41,38 @@ exports.createPages = ({ graphql, actions }) => {
               slug
             }
           }
+          next {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+            }
+          }
+          previous {
+            frontmatter {
+              title
+            }
+            fields {
+              slug
+            }
+          }
         }
       }
     }
   `).then(result => {
     const posts = result.data.allMarkdownRemark.edges
 
-    posts.forEach(({ node }) => {
+    posts.forEach(({ node, next, previous }) => {
       createPage({
         path: node.fields.slug,
         component: path.resolve("./src/templates/blog-post.js"),
         context: {
+          // Data passed to context is available
+          // in page queries as GraphQL
           slug: node.fields.slug,
+          previousPost: next,
+          nextPost: previous,
         },
       })
     })
