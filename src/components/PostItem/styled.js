@@ -51,6 +51,15 @@ export const PostItemTag = styled.div`
   body#grid & {
     margin-bottom: 1.5rem;
   }
+
+  ${media.lessThan("large")`
+		font-size: 1rem;
+    min-height: auto;
+    min-width: auto;
+    margin-bottom: 0.7rem;
+    border-radius: 0px;
+    padding: 0.2rem 0.5rem;
+	`}
 `
 
 export const PostItemInfo = styled.div`

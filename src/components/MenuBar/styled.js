@@ -32,6 +32,8 @@ export const MenuBarGroup = styled.div`
 
   ${media.lessThan("large")`
     flex-direction: row;
+		flex: 1;
+    justify-content: space-around;
   `}
 `
 
@@ -63,6 +65,7 @@ export const MenuBarItem = styled.span`
     position: relative;
 		width: 3.2rem;
 		margin: 0;
+		text-align: center;
 
 		svg {
 			height: 100%;
