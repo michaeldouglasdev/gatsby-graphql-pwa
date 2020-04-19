@@ -6,6 +6,7 @@ import { Grid } from "styled-icons/boxicons-solid/Grid"
 import { Lightbulb as Light } from "styled-icons/fa-regular/Lightbulb"
 import { ThList as List } from "styled-icons/typicons/ThList"
 import * as Styled from "./styled"
+import getThemeColor from "../../utils/getThemeColor"
 
 const MenuBar = () => {
   const [theme, setTheme] = useState(null)
@@ -23,12 +24,28 @@ const MenuBar = () => {
   return (
     <Styled.MenuBarWrapper>
       <Styled.MenuBarGroup>
-        <Styled.MenuBarLink to="/" title="Voltar para Home">
+        <Styled.MenuBarLink
+          cover
+          direction="right"
+          bg={getThemeColor()}
+          duration={0.6}
+          activeClassName="active"
+          to="/"
+          title="Voltar para Home"
+        >
           <Styled.MenuBarItem>
             <Home></Home>
           </Styled.MenuBarItem>
         </Styled.MenuBarLink>
-        <Styled.MenuBarLink to="/search" title="Pesquisar">
+        <Styled.MenuBarLink
+          cover
+          direction="right"
+          bg={getThemeColor()}
+          duration={0.6}
+          activeClassName="active"
+          to="/search"
+          title="Pesquisar"
+        >
           <Styled.MenuBarItem>
             <Search></Search>
           </Styled.MenuBarItem>
@@ -50,6 +67,7 @@ const MenuBar = () => {
           onClick={() => {
             window.__setPreferredDisplay(isListMode ? "grid" : "list")
           }}
+          className="display"
         >
           {isListMode ? <Grid></Grid> : <List></List>}
         </Styled.MenuBarItem>

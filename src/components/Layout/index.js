@@ -4,14 +4,19 @@ import GlobalStyles from "../../styles/global"
 import * as Styled from "./styled"
 import Sidebar from "../Sidebar"
 import MenuBar from "../MenuBar"
+import { TransitionPortal } from "gatsby-plugin-transition-link"
 
 const Layout = ({ children }) => {
   return (
     <Styled.LayoutWrapper>
       <GlobalStyles />
-      <Sidebar></Sidebar>
+      <TransitionPortal level="top">
+        <Sidebar></Sidebar>
+      </TransitionPortal>
       <Styled.LayoutMain>{children}</Styled.LayoutMain>
-      <MenuBar></MenuBar>
+      <TransitionPortal level="top">
+        <MenuBar></MenuBar>
+      </TransitionPortal>
     </Styled.LayoutWrapper>
   )
 }
