@@ -74,13 +74,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `John Doe`,
-        short_name: `John Doe`,
+        name: `Michael Douglas App`,
+        short_name: `Michael Douglas App`,
         start_url: `/`,
         background_color: `#16202c`,
         theme_color: `#16202c`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `static/assets/img/michael-douglas-perfil.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-sitemap`,
